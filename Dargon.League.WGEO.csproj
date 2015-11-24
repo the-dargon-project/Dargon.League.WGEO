@@ -32,30 +32,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ImpromptuInterface">
-      <HintPath>packages\libwarty.proxies-impl.0.0.13\lib\net45\ImpromptuInterface.dll</HintPath>
+    <Reference Include="ImpromptuInterface, Version=6.2.2.0, Culture=neutral, PublicKeyToken=0b1781c923b2975b, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\libwarty.proxies-impl.0.0.13\lib\net45\ImpromptuInterface.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="libdargon.filesystem-api">
-      <HintPath>packages\libdargon.filesystem-impl.0.0.1\lib\net45\libdargon.filesystem-api.dll</HintPath>
+    <Reference Include="libdargon.filesystem-api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\libdargon.filesystem-impl.0.0.1\lib\net45\libdargon.filesystem-api.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="libdargon.filesystem-impl">
-      <HintPath>packages\libdargon.filesystem-impl.0.0.1\lib\net45\libdargon.filesystem-impl.dll</HintPath>
+    <Reference Include="libdargon.filesystem-impl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\libdargon.filesystem-impl.0.0.1\lib\net45\libdargon.filesystem-impl.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="libdnode">
-      <HintPath>packages\libdargon.filesystem-impl.0.0.1\lib\net45\libdnode.dll</HintPath>
+    <Reference Include="libdnode, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\libdargon.filesystem-impl.0.0.1\lib\net45\libdnode.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="libwarty, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\libwarty.proxies-impl.0.0.13\lib\net45\libwarty.dll</HintPath>
+      <HintPath>..\..\packages\libwarty.proxies-impl.0.0.13\lib\net45\libwarty.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="libwarty.proxies-api">
-      <HintPath>packages\libwarty.proxies-impl.0.0.13\lib\net45\libwarty.proxies-api.dll</HintPath>
+    <Reference Include="libwarty.proxies-api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\libwarty.proxies-impl.0.0.13\lib\net45\libwarty.proxies-api.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="libwarty.proxies-impl">
-      <HintPath>packages\libwarty.proxies-impl.0.0.13\lib\net45\libwarty.proxies-impl.dll</HintPath>
+    <Reference Include="libwarty.proxies-impl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\libwarty.proxies-impl.0.0.13\lib\net45\libwarty.proxies-impl.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="NLog">
-      <HintPath>packages\libdargon.filesystem-impl.0.0.1\lib\net45\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=3.1.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\libdargon.filesystem-impl.0.0.1\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -78,7 +85,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dargon.ModelViewer\Dargon.ModelViewer.csproj">
+    <ProjectReference Include="..\model-viewer\Dargon.Renderer.csproj">
       <Project>{53fc10a5-af8e-4d2a-afe5-39fad83f87e3}</Project>
       <Name>Dargon.ModelViewer</Name>
     </ProjectReference>

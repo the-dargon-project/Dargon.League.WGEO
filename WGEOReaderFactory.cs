@@ -5,7 +5,7 @@ using ItzWarty;
 using System.Linq;
 
 namespace Dargon.League.WGEO {
-   class WGEOReaderFactory : IWGEOReaderFactory {
+   public class WGEOReaderFactory : IWGEOReaderFactory {
       public WGEOFile ReadWGEOFile(Stream stream) {
          using (var reader = new BinaryReader(stream)) {
             var file = new WGEOFile();

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
+using Dargon.Scene.Api;
 using ItzWarty;
-using System.Linq;
 
 namespace Dargon.League.WGEO {
-   public class WGEOReaderFactory : IWGEOReaderFactory {
-      public WGEOFile ReadWGEOFile(Stream stream) {
+   public class WGEOReader : IWGEOReaderFactory {
+      public WGEOFile Read(Stream stream) {
          using (var reader = new BinaryReader(stream)) {
             var file = new WGEOFile();
 
@@ -23,19 +22,19 @@ namespace Dargon.League.WGEO {
 
 
             for (var modelNumber = 0; modelNumber < numberOfModels; ++modelNumber) {
-               var model = new WGEOModel(); 
+               var model = new Mesh(); 
 
                // Console.WriteLine('\n' + reader.BaseStream.Position.ToString("X"));
 
-               model.textureName = new BinaryReader(new MemoryStream(reader.ReadBytes(260))).ReadNullTerminatedString();
+               model.TexturePath = new BinaryReader(new MemoryStream(reader.ReadBytes(260))).ReadNullTerminatedString();
                var materialName = new BinaryReader(new MemoryStream(reader.ReadBytes(64))).ReadNullTerminatedString();
 
                //Console.WriteLine("Texture name: {0}", textureName);
                //Console.WriteLine("Material name: {0}", materialName);
 
-               var boundingSphere = reader.ReadFloat4();
-               var AABBMin = reader.ReadFloat3();
-               var AABBMax = reader.ReadFloat3();
+               var boundingSphere = reader.ReadVector4();
+               var AABBMin = reader.ReadVector3();
+               var AABBMax = reader.ReadVector3();
 
                var vertexCount = reader.ReadInt32();
                var indexCount = reader.ReadInt32();
@@ -43,13 +42,13 @@ namespace Dargon.League.WGEO {
                //Console.WriteLine("\{vertexCount} Vertices found");
                //Console.WriteLine("\{indexCount} Indices found");
 
-               model.vertices = Util.Generate(vertexCount, i => reader.ReadWGEOVertex());
-               model.indices = Util.Generate(indexCount, i => reader.ReadUInt16());
+               model.Vertices = Util.Generate(vertexCount, i => reader.ReadWGEOVertex());
+               model.Indices = Util.Generate(indexCount, i => reader.ReadUInt16());
 
                //Console.WriteLine(vertices[0].position);
 
-               //var min = new Float3(vertices[0].position);
-               //var max = new Float3(vertices[0].position);
+               //var min = new Vector3(vertices[0].position);
+               //var max = new Vector3(vertices[0].position);
 
                //vertices.ForEach(vertex => {
                //   min.x = Math.Min(min.x, vertex.position.x);

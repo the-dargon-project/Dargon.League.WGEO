@@ -1,7 +1,7 @@
 ﻿using System.IO;
 
 namespace Dargon.League.WGEO {
-   interface IWGEOReaderFactory {
-      WGEOFile ReadWGEOFile(Stream stream);
+   public interface IWGEOReaderFactory {
+      WGEOFile Read(Stream stream);
    }
 }

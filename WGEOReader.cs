@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Dargon.Scene.Api;
+using Dargon.Scene.Api.Util;
 using ItzWarty;
 
 namespace Dargon.League.WGEO {
@@ -32,9 +33,8 @@ namespace Dargon.League.WGEO {
                //Console.WriteLine("Texture name: {0}", textureName);
                //Console.WriteLine("Material name: {0}", materialName);
 
-               var boundingSphere = reader.ReadVector4();
-               var AABBMin = reader.ReadVector3();
-               var AABBMax = reader.ReadVector3();
+               model.BoundingSphere = reader.ReadVector4();
+               model.AABB = new AABB(reader.ReadVector3(), reader.ReadVector3());
 
                var vertexCount = reader.ReadInt32();
                var indexCount = reader.ReadInt32();
